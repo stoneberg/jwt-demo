@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+logging:
+  config: classpath:logback/logback-spring.xml
+        
+spring:
+  profiles:
+    active: local
+        
+# Actuator
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#
+#  endpoint:
+#    health:
+#      show-components: always
+#      show-details: always
+#
+#  metrics:
+#    export:
+#      jmx:
+#        enabled: true

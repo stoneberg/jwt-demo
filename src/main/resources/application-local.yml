@@ -1,0 +1,29 @@
+spring:
+#  session:
+#    store-type: jdbc
+#    jdbc:
+#      initialize-schema: always # need for RDBMS (for the first time, set always)
+
+  datasource:
+    url: jdbc:p6spy:postgresql://localhost:5432/demo
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+    username: stoneberg
+    password: new1234@
+
+    hikari:
+      connection-timeout: 50000
+      minimum-idle: 3
+      maximum-pool-size: 5
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate.ddl-auto: create
+    properties:
+      hibernate.default_batch_fetch_size: 500
+      hibernate.jdbc.lob.non_contextual_creation: true
+
+
+app:
+  jwt: # Never bend your head. Hold it high. Look the world straight in the eye.
+    secretKey: TmV2ZXIgYmVuZCB5b3VyIGhlYWQuIEhvbGQgaXQgaGlnaC4gTG9vayB0aGUgd29ybGQgc3RyYWlnaHQgaW4gdGhlIGV5ZS4=
+    tokenExpiration: 7200000 # [7,200,000] 2 X 60 X 60 X 1000 => 2시간
